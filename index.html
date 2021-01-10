@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FileShare</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Upload FIle Container and Choose File Ui -->
+    <section class="upload-container">
+      <div class="drop-zone">
+        <div class="icon-container">
+          <img src="file.svg" class="center" alt="file" draggable="false" />
+          <img src="file.svg" class="left" alt="file" draggable="false" />
+          <img src="file.svg" class="right" alt="file" draggable="false" />
+        </div>
+        <input class="choose-file" type="file" />
+        <div class="title">
+          Drop your Files or,
+          <span class="browse-btn"> Click Here To Browse</span>
+        </div>
+      </div>
+
+      <!-- Progress Container Shows Upload Process -->
+      <div class="progress-container">
+        <div class="bg-progress"></div>
+        <div class="inner-container">
+          <div class="title">Uploading...</div>
+          <div class="percent-container"><span id="percent">0</span>%</div>
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Show Link which Expires in 24 Hours -->
+      <div class="sharing-container">
+        <p class="expire-link">Link Expires in 24Hrs</p>
+        <div class="input-container">
+          <input type="text" id="fileURL" readonly />
+          <img src="./copy-icon.svg" id="copy-button" alt="copy" />
+        </div>
+        <!-- Send Via Email Option -->
+        <p>Or Send Via Email</p>
+        <div class="email-container">
+          <form class="email-form">
+            <div class="field">
+              <label for="">Your Email</label>
+              <input type="email" required name="from-email" id="sender" />
+            </div>
+            <div class="field">
+              <label for="">Recievers Email</label>
+              <input type="email" required name="to-email" id="reciever" />
+            </div>
+            <div class="buttons">
+              <button class="">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Background Image -->
+    <div class="upload-vector"></div>
+    <!-- Alert => Copied to Clipboard -->
+    <div class="toast">Copied to Clipboead</div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

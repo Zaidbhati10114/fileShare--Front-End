@@ -1,0 +1,265 @@
+:root {
+  --main-bg-color: #eff5ee;
+  --border-color: #0288d147;
+  --container-width: 500px;
+}
+
+body,
+html {
+  font-family: system-ui;
+  background-color: #f8f1f1;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.choose-file {
+  display: none;
+}
+
+.browse-btn {
+  color: #54e346;
+  cursor: pointer;
+}
+
+body,
+.drop-zone,
+.upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop-zone {
+  width: var(--container-width);
+  min-height: 200px;
+  border: 2px dashed var(--border-color);
+  margin: 30px;
+  border-radius: 10px;
+  transition: all 2s ease;
+}
+
+.dragged.drop-zone {
+  background: #98acf8;
+  border-color: blue;
+}
+
+.upload-container {
+  background: #ffffff;
+  border-radius: 25px;
+}
+
+.upload-container:hover {
+  box-shadow: 0px 20px 20px #0000002e;
+  cursor: pointer;
+}
+
+.icon-container {
+  width: 75px;
+  height: 100px;
+  position: relative;
+}
+
+.icon-container > img {
+  width: 75px;
+  position: absolute;
+  transform-origin: bottom;
+  transition: transform 250ms ease-in-out;
+}
+
+.icon-container > .center {
+  z-index: 2;
+}
+
+.icon-container .right,
+.icon-container .left {
+  filter: grayscale(0.5);
+  transform: scale(0.9);
+}
+
+.dragged .icon-container .right {
+  transform: rotate(10deg) translateX(20px) scale(0.9);
+}
+
+.dragged .icon-container .left {
+  transform: rotate(-10deg) translateX(-20px) scale(0.9);
+}
+
+.dragged .icon-container .center {
+  transform: translateY(-5px);
+}
+
+.progress-container {
+  width: var(--container-width);
+  height: 70px;
+  border: 2px solid #a8dadc;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  position: relative;
+  display: none;
+}
+
+.progress-container > .bg-progress {
+  background-color: #3a86ff;
+  width: 0%;
+  height: 100%;
+  border-radius: 3%;
+
+  transition: width 0.25s linear;
+  position: absolute;
+}
+
+.title {
+  color: #8338ec;
+}
+
+.progress-container .inner-container {
+  position: absolute;
+  z-index: 1;
+  margin: 10px 15px;
+  width: calc(100%-30px);
+}
+.percent-container {
+  font-size: 13px;
+  margin: 5px;
+  opacity: 0.8;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 100%;
+  background: #00296b;
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform all 0.25s linear;
+}
+
+.sharing-container {
+  width: var(--container-width);
+  margin-bottom: 20px;
+  display: none;
+}
+
+p {
+  opacity: 0.7;
+  text-align: center;
+}
+
+.input-container {
+  position: relative;
+}
+
+.sharing-container .input-container input {
+  width: 100%;
+  border: 2px dashed #ffa62b;
+  border-radius: 6px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  background: #eff8ff;
+}
+
+.input-container img {
+  position: absolute;
+  height: 22px;
+  width: 30px;
+  right: 7px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.email-container {
+  display: flex;
+
+  align-items: center;
+}
+
+.email-container form {
+  width: 100%;
+  border: 2px solid #4e8d7c;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.email-container .field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 400px;
+}
+
+.email-container label {
+  font-size: 18px;
+}
+
+.email-container input {
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid #8ad7c1;
+  text-align: center;
+}
+
+.email-container input:focus {
+  outline: none;
+}
+
+.field > label {
+  color: #c24914;
+}
+
+.email-container button {
+  font-size: 18px;
+  padding: 8px 40px;
+  margin-top: 15px;
+  background-color: #e4e978;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.email-container button:hover {
+  background-color: #cad315;
+}
+
+.toast {
+  position: absolute;
+  bottom: 10px;
+  font-size: 18px;
+  left: 50%;
+  transform: translate(-50%, 60px);
+
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #98acf8;
+  transition: transform ease-in-out 0.2s;
+  color: #222831;
+  box-shadow: 3px 3px 6px 0px #ccdbe8 inset,
+    -3px -3px 6px 1px rgba(255, 255, 255, 0.5) inset;
+  transition: transform ease-in-out 0.2s;
+}
+
+.upload-vector {
+  background-size: contain;
+  height: 50vh;
+  width: 50vw;
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --container-width: 320px;
+  }
+  .upload-vector {
+    display: none;
+  }
+
+  .email-container .field {
+    flex-direction: column;
+    width: 300px;
+  }
+} ;
